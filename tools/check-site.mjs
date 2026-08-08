@@ -9,7 +9,7 @@ const required = [
   'script.js',
   '.nojekyll',
   'assets/favicon.svg',
-  'assets/ascend26-poster-draft.png'
+  'assets/abstract-orbit.png'
 ];
 
 const failures = [];
@@ -20,6 +20,7 @@ for (const relativePath of required) {
 }
 
 const html = readFileSync(resolve(root, 'index.html'), 'utf8');
+const css = readFileSync(resolve(root, 'styles.css'), 'utf8');
 const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1]);
 const duplicates = ids.filter((id, index) => ids.indexOf(id) !== index);
 if (duplicates.length) {
@@ -44,8 +45,15 @@ for (const anchor of anchors) {
 
 if (!html.includes('<main id="main-content">')) failures.push('Missing labelled main landmark.');
 if (!html.includes('name="description"')) failures.push('Missing meta description.');
+if (html.includes('ascend26-poster-draft')) failures.push('Draft poster must not be linked from the public site.');
+const fieldLists = [...html.matchAll(/<ol class="field-list">([\s\S]*?)<\/ol>/g)];
+const fieldCounts = fieldLists.map((match) => (match[1].match(/<li>/g) || []).length);
+if (fieldCounts.length !== 2 || fieldCounts[0] !== 18 || fieldCounts[1] !== 12) {
+  failures.push('Expected complete research field lists containing 18 and 12 areas.');
+}
+if ((html.match(/class="timeline-item/g) || []).length !== 8) failures.push('Expected eight chronological timeline entries.');
+if ((css.match(/{/g) || []).length !== (css.match(/}/g) || []).length) failures.push('CSS braces are unbalanced.');
 if (!html.includes('prefers-reduced-motion')) {
-  const css = readFileSync(resolve(root, 'styles.css'), 'utf8');
   if (!css.includes('prefers-reduced-motion')) failures.push('Missing reduced-motion treatment.');
 }
 

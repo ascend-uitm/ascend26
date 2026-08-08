@@ -23,6 +23,6 @@ The source poster is a draft. Details explicitly labelled **TBC** or **Draft** m
 - the MYR 30 / USD 8 fee category;
 - venue and participation arrangements;
 - registration/submission system URL; and
-- final list of research fields.
+- final wording of the research fields.
 
-Replace assets/ascend26-poster-draft.png when the approved poster is available.
+The draft poster is intentionally not published or linked from this repository.
