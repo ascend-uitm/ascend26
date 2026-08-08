@@ -715,6 +715,17 @@ h3 {
   background: var(--gold);
 }
 
+.timeline-item--feature:hover .timeline-content {
+  border-color: var(--gold-light);
+  color: var(--ink);
+  background: var(--gold-light);
+}
+
+.timeline-item--feature:hover .timeline-node {
+  background: var(--paper);
+  box-shadow: 0 0 0 7px rgba(217, 189, 120, 0.18);
+}
+
 .timeline-item--feature time,
 .timeline-item--feature .timeline-content > span,
 .timeline-item--feature p,
