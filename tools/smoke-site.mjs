@@ -33,7 +33,7 @@ const address = server.address();
 const origin = 'http://127.0.0.1:' + address.port;
 
 try {
-  const routes = ['/', '/styles.css', '/script.js', '/assets/favicon.svg', '/assets/ascend26-poster-draft.png'];
+  const routes = ['/', '/styles.css', '/script.js', '/assets/favicon.svg', '/assets/abstract-orbit.png'];
   for (const route of routes) {
     const response = await fetch(origin + route);
     if (!response.ok) throw new Error(route + ' returned HTTP ' + response.status);
