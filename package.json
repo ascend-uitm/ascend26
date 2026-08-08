@@ -1,0 +1,9 @@
+{
+  "name": "ascend26-event-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Public information site for the ASCEND'26 Postgraduate Colloquium.",
+  "scripts": {
+    "check": "node --check script.js && node tools/check-site.mjs && node tools/smoke-site.mjs"
+  }
+}
