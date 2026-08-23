@@ -18,8 +18,6 @@ GitHub Pages serves the repository root from the main branch. The .nojekyll mark
 
 The source poster is a draft. Details explicitly labelled **TBC** or **Draft** must be confirmed before the site is treated as the final public announcement, especially:
 
-- final colloquium date;
-- registration and submission dates;
 - the MYR 30 / USD 8 fee category;
 - venue and participation arrangements;
 - registration/submission system URL; and

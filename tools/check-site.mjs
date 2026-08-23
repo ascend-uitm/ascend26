@@ -29,7 +29,7 @@ if (duplicates.length) {
 
 const localReferences = [...html.matchAll(/(?:href|src)="([^"]+)"/g)]
   .map((match) => match[1])
-  .filter((reference) => !/^(?:https?:|mailto:|#)/.test(reference));
+  .filter((reference) => !/^(?:https?:|mailto:|tel:|#)/.test(reference));
 
 for (const reference of localReferences) {
   const pathOnly = reference.split('#')[0].split('?')[0];
@@ -51,7 +51,19 @@ const fieldCounts = fieldLists.map((match) => (match[1].match(/<li>/g) || []).le
 if (fieldCounts.length !== 2 || fieldCounts[0] !== 18 || fieldCounts[1] !== 12) {
   failures.push('Expected complete research field lists containing 18 and 12 areas.');
 }
-if ((html.match(/class="timeline-item/g) || []).length !== 8) failures.push('Expected eight chronological timeline entries.');
+if ((html.match(/class="timeline-item/g) || []).length !== 6) failures.push('Expected six timeline entries.');
+const updatedEventContent = [
+  '26 August 2026',
+  '28 September 2026',
+  '11 September 2026',
+  '5 October 2026',
+  '12&ndash;13 October 2026',
+  'ppsperlis@uitm.edu.my',
+  'Ts. Dr. Sabiroh Md Sabri (012-2992725)'
+];
+for (const content of updatedEventContent) {
+  if (!html.includes(content)) failures.push('Missing updated event content: ' + content);
+}
 if ((css.match(/{/g) || []).length !== (css.match(/}/g) || []).length) failures.push('CSS braces are unbalanced.');
 if (!html.includes('prefers-reduced-motion')) {
   if (!css.includes('prefers-reduced-motion')) failures.push('Missing reduced-motion treatment.');
