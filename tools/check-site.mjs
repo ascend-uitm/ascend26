@@ -57,12 +57,23 @@ const updatedEventContent = [
   '28 September 2026',
   '11 September 2026',
   '5 October 2026',
-  '12&ndash;13 October 2026',
+  '12 October 2026',
+  'Participant · Local',
+  'RM 100',
+  'Participant · International',
+  'USD 30',
+  'Listener · Local',
+  'RM 10',
+  'Listener · International',
+  'USD 3',
   'ppsperlis@uitm.edu.my',
   'Ts. Dr. Sabiroh Md Sabri (012-2992725)'
 ];
 for (const content of updatedEventContent) {
   if (!html.includes(content)) failures.push('Missing updated event content: ' + content);
+}
+for (const removedContent of ['12&ndash;13 October 2026', 'Week 3 of lectures', 'MYR 60', 'USD 15']) {
+  if (html.includes(removedContent)) failures.push('Removed event content is still present: ' + removedContent);
 }
 if ((css.match(/{/g) || []).length !== (css.match(/}/g) || []).length) failures.push('CSS braces are unbalanced.');
 if (!html.includes('prefers-reduced-motion')) {
