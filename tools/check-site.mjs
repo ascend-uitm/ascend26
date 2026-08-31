@@ -9,7 +9,11 @@ const required = [
   'script.js',
   '.nojekyll',
   'assets/favicon.svg',
-  'assets/abstract-orbit.png'
+  'assets/abstract-orbit.png',
+  'assets/speakers/ahmad-nizan-mat-noor.png',
+  'assets/speakers/mohd-nazip-suratman.jpeg',
+  'assets/speakers/seca-gandaseca.jpeg',
+  'assets/speakers/zulkiflee-abd-latif.jpeg'
 ];
 
 const failures = [];
@@ -58,21 +62,51 @@ const updatedEventContent = [
   '11 September 2026',
   '5 October 2026',
   '12 October 2026',
-  'Participant · Local',
+  'Prof. Madya Dr Ahmad Nizan Bin Mat Noor',
+  'Prof. Dr. Mohd Nazip Suratman',
+  'Are Your Research Questions, Objectives, Hypotheses, and Statistical Analysis Aligned?',
+  'Assoc. Prof. Dr Seca Gandaseca',
+  'Postgraduate Research as a Catalyst for Sustainable Development and SDG Achievement',
+  'Prof. Dr. Zulkiflee Abd Latif',
+  'The Successful Postgraduate: Research Smarter, Progress Faster, Graduate on Time',
+  'Participant Registration and Virtual Session Admission',
+  'Closing Ceremony and Announcement of Winners',
+  'Programme Ends',
+  'Participant',
   'RM 100',
-  'Participant · International',
-  'USD 30',
-  'Listener · Local',
+  'Listener',
   'RM 10',
-  'Listener · International',
-  'USD 3',
+  'Payment instructions will be announced later.',
+  'https://ascend.vlarbs.space/',
+  'Extended abstract template',
+  'Abstract template',
+  'File coming soon',
   'ppsperlis@uitm.edu.my',
   'Ts. Dr. Sabiroh Md Sabri (012-2992725)'
 ];
 for (const content of updatedEventContent) {
   if (!html.includes(content)) failures.push('Missing updated event content: ' + content);
 }
-for (const removedContent of ['12&ndash;13 October 2026', 'Week 3 of lectures', 'MYR 60', 'USD 15']) {
+const programmeBody = html.match(/<tbody>([\s\S]*?)<\/tbody>/);
+if (!programmeBody || (programmeBody[1].match(/<tr(?:\s|>)/g) || []).length !== 11) {
+  failures.push('Expected eleven tentative programme entries.');
+}
+if ((html.match(/class="speaker-card reveal"/g) || []).length !== 4) failures.push('Expected four keynote speaker cards.');
+if ((html.match(/href="https:\/\/ascend\.vlarbs\.space\/"/g) || []).length < 3) {
+  failures.push('Expected registration portal links in the navigation, hero, and registration section.');
+}
+for (const removedContent of [
+  '12&ndash;13 October 2026',
+  'Week 3 of lectures',
+  'Participant · Local',
+  'Participant · International',
+  'Listener · Local',
+  'Listener · International',
+  'USD 30',
+  'USD 3',
+  'MYR 60',
+  'USD 15'
+]) {
   if (html.includes(removedContent)) failures.push('Removed event content is still present: ' + removedContent);
 }
 if ((css.match(/{/g) || []).length !== (css.match(/}/g) || []).length) failures.push('CSS braces are unbalanced.');
