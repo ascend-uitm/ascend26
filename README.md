@@ -19,7 +19,7 @@ GitHub Pages serves the repository root from the main branch. The .nojekyll mark
 The source poster is a draft. Details explicitly labelled **TBC** or **Draft** must be confirmed before the site is treated as the final public announcement, especially:
 
 - venue and participation arrangements;
-- final abstract and extended abstract template files; and
+- final abstract template file; and
 - final wording of the research fields.
 
 The draft poster is intentionally not published or linked from this repository.

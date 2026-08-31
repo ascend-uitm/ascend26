@@ -13,7 +13,8 @@ const required = [
   'assets/speakers/ahmad-nizan-mat-noor.png',
   'assets/speakers/mohd-nazip-suratman.jpeg',
   'assets/speakers/seca-gandaseca.jpeg',
-  'assets/speakers/zulkiflee-abd-latif.jpeg'
+  'assets/speakers/zulkiflee-abd-latif.jpeg',
+  'assets/templates/ascend-2026-extended-abstract-template.docx'
 ];
 
 const failures = [];
@@ -62,6 +63,7 @@ const updatedEventContent = [
   '11 September 2026',
   '5 October 2026',
   '12 October 2026',
+  '12<sup>th</sup>',
   'Prof. Madya Dr Ahmad Nizan Bin Mat Noor',
   'Prof. Dr. Mohd Nazip Suratman',
   'Are Your Research Questions, Objectives, Hypotheses, and Statistical Analysis Aligned?',
@@ -79,6 +81,8 @@ const updatedEventContent = [
   'Payment instructions will be announced later.',
   'https://ascend.vlarbs.space/',
   'Extended abstract template',
+  'assets/templates/ascend-2026-extended-abstract-template.docx',
+  'Download DOCX',
   'Abstract template',
   'File coming soon',
   'ppsperlis@uitm.edu.my',
@@ -92,6 +96,9 @@ if (!programmeBody || (programmeBody[1].match(/<tr(?:\s|>)/g) || []).length !== 
   failures.push('Expected eleven tentative programme entries.');
 }
 if ((html.match(/class="speaker-card reveal"/g) || []).length !== 4) failures.push('Expected four keynote speaker cards.');
+if ((html.match(/href="assets\/templates\/ascend-2026-extended-abstract-template\.docx"/g) || []).length !== 1) {
+  failures.push('Expected one active extended abstract template download link.');
+}
 if ((html.match(/href="https:\/\/ascend\.vlarbs\.space\/"/g) || []).length < 3) {
   failures.push('Expected registration portal links in the navigation, hero, and registration section.');
 }
