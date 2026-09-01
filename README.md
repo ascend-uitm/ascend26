@@ -1,6 +1,6 @@
 # ASCEND'26 information site
 
-Static public website for the ASCEND'26 Postgraduate Colloquium organised by Universiti Teknologi MARA Cawangan Perlis.
+Static public website for the ASCEND'26 Postgraduate Colloquium organised by the Center of Postgraduate Studies, Academic Affair Division, UiTM Cawangan Perlis in collaboration with Postgraduate Society of UiTMPs.
 
 ## Local preview
 
@@ -18,7 +18,6 @@ GitHub Pages serves the repository root from the main branch. The .nojekyll mark
 
 The source poster is a draft. Details explicitly labelled **TBC** or **Draft** must be confirmed before the site is treated as the final public announcement, especially:
 
-- venue and participation arrangements;
 - final abstract template file; and
 - final wording of the research fields.
 

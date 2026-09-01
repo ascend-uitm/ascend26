@@ -64,6 +64,13 @@ const updatedEventContent = [
   '5 October 2026',
   '12 October 2026',
   '12<sup>th</sup>',
+  '<dt>Participation</dt>',
+  '<dd>Online only</dd>',
+  '<dt>Keynote</dt>',
+  '<dd>Hybrid</dd>',
+  'Participant presentations are online only. Keynote sessions will be conducted in hybrid format.',
+  'Hybrid Keynote Speaker Session',
+  'Online Parallel Session',
   'Prof. Madya Dr Ahmad Nizan Bin Mat Noor',
   'Prof. Dr. Mohd Nazip Suratman',
   'Are Your Research Questions, Objectives, Hypotheses, and Statistical Analysis Aligned?',
@@ -86,7 +93,8 @@ const updatedEventContent = [
   'Abstract template',
   'File coming soon',
   'ppsperlis@uitm.edu.my',
-  'Ts. Dr. Sabiroh Md Sabri (012-2992725)'
+  'Ts. Dr. Sabiroh Md Sabri (012-2992725)',
+  'Center of Postgraduate Studies, Academic Affair Division, UiTM Cawangan Perlis in collaboration with Postgraduate Society of UiTMPs'
 ];
 for (const content of updatedEventContent) {
   if (!html.includes(content)) failures.push('Missing updated event content: ' + content);
@@ -112,7 +120,10 @@ for (const removedContent of [
   'USD 30',
   'USD 3',
   'MYR 60',
-  'USD 15'
+  'USD 15',
+  'Physical &amp; online',
+  'Physical and online postgraduate presentations.',
+  '<dt>2</dt><dd>Participation modes</dd>'
 ]) {
   if (html.includes(removedContent)) failures.push('Removed event content is still present: ' + removedContent);
 }
