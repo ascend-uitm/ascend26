@@ -56,3 +56,48 @@ if (reducedMotion || !('IntersectionObserver' in window)) {
 document.querySelectorAll('[data-year]').forEach((item) => {
   item.textContent = String(new Date().getFullYear());
 });
+
+const posterModal = document.querySelector('[data-poster-modal]');
+const posterOpen = document.querySelector('[data-poster-open]');
+const posterClose = document.querySelector('[data-poster-close]');
+let posterReturnFocus = null;
+
+function openPoster(trigger = posterOpen) {
+  if (!posterModal || posterModal.open) return;
+  posterReturnFocus = trigger || document.activeElement || posterOpen;
+
+  if (typeof posterModal.showModal === 'function') {
+    posterModal.showModal();
+  } else {
+    posterModal.setAttribute('open', '');
+  }
+
+  document.body.classList.add('poster-open');
+  posterClose?.focus({ preventScroll: true });
+}
+
+function closePoster() {
+  if (!posterModal || !posterModal.open) return;
+
+  if (typeof posterModal.close === 'function') {
+    posterModal.close();
+  } else {
+    posterModal.removeAttribute('open');
+    document.body.classList.remove('poster-open');
+    posterReturnFocus?.focus({ preventScroll: true });
+  }
+}
+
+posterOpen?.addEventListener('click', () => openPoster(posterOpen));
+posterClose?.addEventListener('click', closePoster);
+
+posterModal?.addEventListener('click', (event) => {
+  if (event.target === posterModal) closePoster();
+});
+
+posterModal?.addEventListener('close', () => {
+  document.body.classList.remove('poster-open');
+  posterReturnFocus?.focus({ preventScroll: true });
+});
+
+window.setTimeout(() => openPoster(posterOpen), 420);

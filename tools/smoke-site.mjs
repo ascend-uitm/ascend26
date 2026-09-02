@@ -8,6 +8,7 @@ const contentTypes = {
   '.css': 'text/css',
   '.html': 'text/html',
   '.js': 'text/javascript',
+  '.jpg': 'image/jpeg',
   '.png': 'image/png',
   '.svg': 'image/svg+xml'
 };
@@ -43,7 +44,8 @@ try {
     '/assets/speakers/mohd-nazip-suratman.jpeg',
     '/assets/speakers/seca-gandaseca.jpeg',
     '/assets/speakers/zulkiflee-abd-latif.jpeg',
-    '/assets/templates/ascend-2026-extended-abstract-template.docx'
+    '/assets/templates/ascend-2026-extended-abstract-template.docx',
+    '/assets/posters/ascend26-official-poster.jpg'
   ];
   for (const route of routes) {
     const response = await fetch(origin + route);

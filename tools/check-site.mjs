@@ -14,7 +14,8 @@ const required = [
   'assets/speakers/mohd-nazip-suratman.jpeg',
   'assets/speakers/seca-gandaseca.jpeg',
   'assets/speakers/zulkiflee-abd-latif.jpeg',
-  'assets/templates/ascend-2026-extended-abstract-template.docx'
+  'assets/templates/ascend-2026-extended-abstract-template.docx',
+  'assets/posters/ascend26-official-poster.jpg'
 ];
 
 const failures = [];
@@ -26,6 +27,7 @@ for (const relativePath of required) {
 
 const html = readFileSync(resolve(root, 'index.html'), 'utf8');
 const css = readFileSync(resolve(root, 'styles.css'), 'utf8');
+const script = readFileSync(resolve(root, 'script.js'), 'utf8');
 const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1]);
 const duplicates = ids.filter((id, index) => ids.indexOf(id) !== index);
 if (duplicates.length) {
@@ -101,7 +103,10 @@ const updatedEventContent = [
   'Abstract template',
   'File coming soon',
   'ppsperlis@uitm.edu.my',
-  'Ts. Dr. Sabiroh Md Sabri (012-2992725)',
+  'Dr. Sabiroh Md Sabri (012-2992725)',
+  'Dr. Rizana Yusof (+60 12-966 5426)',
+  'assets/posters/ascend26-official-poster.jpg',
+  'Official event poster',
   'Center of Postgraduate Studies, Academic Affair Division, UiTM Cawangan Perlis in collaboration with Postgraduate Society of UiTMPs'
 ];
 for (const content of updatedEventContent) {
@@ -112,6 +117,9 @@ if (!programmeBody || (programmeBody[1].match(/<tr(?:\s|>)/g) || []).length !== 
   failures.push('Expected eleven tentative programme entries.');
 }
 if ((html.match(/class="speaker-card reveal"/g) || []).length !== 4) failures.push('Expected four keynote speaker cards.');
+if (!html.includes('<dialog') || !html.includes('data-poster-modal')) failures.push('Missing official poster dialog.');
+if (!script.includes("window.setTimeout(() => openPoster(posterOpen), 420)")) failures.push('Poster splash is not configured to open on page load.');
+if (!script.includes('posterModal.showModal()')) failures.push('Poster splash does not use the native modal dialog API.');
 if ((html.match(/href="assets\/templates\/ascend-2026-extended-abstract-template\.docx"/g) || []).length !== 1) {
   failures.push('Expected one active extended abstract template download link.');
 }
@@ -139,7 +147,8 @@ for (const removedContent of [
   '10.00 am&ndash;12.00 pm',
   '12.00&ndash;2.00 pm',
   '2.00&ndash;2.30 pm',
-  '2.30&ndash;3.00 pm'
+  '2.30&ndash;3.00 pm',
+  'Ts. Dr. Sabiroh Md Sabri'
 ]) {
   if (html.includes(removedContent)) failures.push('Removed event content is still present: ' + removedContent);
 }

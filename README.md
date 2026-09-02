@@ -21,4 +21,4 @@ The source poster is a draft. Details explicitly labelled **TBC** or **Draft** m
 - final abstract template file; and
 - final wording of the research fields.
 
-The draft poster is intentionally not published or linked from this repository.
+The official ASCEND'26 poster is published as an automatically opened, dismissible splash dialog with a persistent button for reopening it.
