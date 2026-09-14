@@ -802,12 +802,17 @@ h3 {
   padding: 0 0 2.25rem;
 }
 
-.timeline-item time {
+.timeline-item > time,
+.timeline-date-range {
   padding: 1.15rem 1.5rem 0 0;
   color: var(--gold-light);
   font-size: 0.82rem;
   font-weight: 750;
   text-align: right;
+}
+
+.timeline-date-range time {
+  color: inherit;
 }
 
 .timeline-node {
@@ -1781,7 +1786,8 @@ body.poster-open {
     left: 14px;
   }
 
-  .timeline-item time {
+  .timeline-item > time,
+  .timeline-date-range {
     grid-column: 2;
     padding: 0 0 0.65rem;
     text-align: left;

@@ -58,13 +58,34 @@ const fieldCounts = fieldLists.map((match) => (match[1].match(/<li>/g) || []).le
 if (fieldCounts.length !== 2 || fieldCounts[0] !== 18 || fieldCounts[1] !== 12) {
   failures.push('Expected complete research field lists containing 18 and 12 areas.');
 }
-if ((html.match(/class="timeline-item/g) || []).length !== 6) failures.push('Expected six timeline entries.');
+const timeline = html.match(/<ol class="timeline">([\s\S]*?)<\/ol>/)?.[1] || '';
+if ((timeline.match(/<li class="timeline-item/g) || []).length !== 5) failures.push('Expected five updated timeline entries.');
+const timelineDates = [
+  'datetime="2026-10-02"',
+  'datetime="2026-10-05"',
+  'datetime="2026-10-09"',
+  'datetime="2026-10-12"',
+  'datetime="2026-10"',
+  'datetime="2027-03"'
+];
+let previousDateIndex = -1;
+for (const date of timelineDates) {
+  const dateIndex = timeline.indexOf(date);
+  if (dateIndex <= previousDateIndex) failures.push('Missing or out-of-order timeline date: ' + date);
+  previousDateIndex = dateIndex;
+}
 const updatedEventContent = [
-  '26 August 2026',
-  '28 September 2026',
-  '11 September 2026',
+  '2 October 2026',
   '5 October 2026',
+  '9 October 2026',
   '12 October 2026',
+  'October 2026',
+  'March 2027',
+  'Registration, extended abstract &amp; video presentation submission',
+  'Notification of acceptance',
+  'Payment &amp; confirmation',
+  'The secretariat plays them during the online session, followed by live Q&amp;A.',
+  'Full paper submission, verification, acceptance &amp; publication',
   '12<sup>th</sup>',
   '<dt>Participation</dt>',
   '<dd>Online only</dd>',
@@ -102,7 +123,7 @@ const updatedEventContent = [
   'Download DOCX',
   'Abstract template',
   'File coming soon',
-  'ppsperlis@uitm.edu.my',
+  'ascenduitmperlis@gmail.com',
   'Dr. Sabiroh Md Sabri (012-2992725)',
   'Dr. Rizana Yusof (+60 12-966 5426)',
   'assets/posters/ascend26-official-poster.jpg',
@@ -148,9 +169,13 @@ for (const removedContent of [
   '12.00&ndash;2.00 pm',
   '2.00&ndash;2.30 pm',
   '2.30&ndash;3.00 pm',
-  'Ts. Dr. Sabiroh Md Sabri'
+  'Ts. Dr. Sabiroh Md Sabri',
+  'ppsperlis@uitm.edu.my'
 ]) {
   if (html.includes(removedContent)) failures.push('Removed event content is still present: ' + removedContent);
+}
+for (const oldDate of ['26 August 2026', '28 September 2026', '11 September 2026']) {
+  if (timeline.includes(oldDate)) failures.push('Outdated timeline date remains: ' + oldDate);
 }
 if ((css.match(/{/g) || []).length !== (css.match(/}/g) || []).length) failures.push('CSS braces are unbalanced.');
 if (!html.includes('prefers-reduced-motion')) {
