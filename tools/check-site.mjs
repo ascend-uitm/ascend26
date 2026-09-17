@@ -116,7 +116,11 @@ const updatedEventContent = [
   'RM 100',
   'Listener',
   'RM 10',
-  "The method of payment will be notified later via the corresponding author's email.",
+  'After receiving your acceptance notification, complete payment by 9 October 2026.',
+  'Official payment portal',
+  "Complete your ASCEND'26 payment.",
+  'https://training.uitmtechnoventure.com.my/tr2026144/',
+  'Proceed to payment',
   'https://ascend.vlarbs.space/',
   'Extended abstract template',
   'assets/templates/ascend-2026-extended-abstract-template.docx',
@@ -147,6 +151,9 @@ if ((html.match(/href="assets\/templates\/ascend-2026-extended-abstract-template
 if ((html.match(/href="https:\/\/ascend\.vlarbs\.space\/"/g) || []).length < 3) {
   failures.push('Expected registration portal links in the navigation, hero, and registration section.');
 }
+if ((html.match(/href="https:\/\/training\.uitmtechnoventure\.com\.my\/tr2026144\/"/g) || []).length !== 1) {
+  failures.push('Expected one official UiTM Technoventure payment link.');
+}
 for (const removedContent of [
   '12&ndash;13 October 2026',
   'Week 3 of lectures',
@@ -162,6 +169,7 @@ for (const removedContent of [
   'Physical and online postgraduate presentations.',
   '<dt>2</dt><dd>Participation modes</dd>',
   'Payment instructions will be announced later.',
+  "The method of payment will be notified later via the corresponding author's email.",
   'The programme runs from 8.00 am to 3.00 pm.',
   '8.50&ndash;8.55 am',
   '8.55&ndash;10.00 am',
