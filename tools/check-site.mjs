@@ -10,7 +10,7 @@ const required = [
   '.nojekyll',
   'assets/favicon.svg',
   'assets/abstract-orbit.png',
-  'assets/speakers/ahmad-nizan-mat-noor.png',
+  'assets/speakers/wanizhan.jpeg',
   'assets/speakers/mohd-nazip-suratman.jpeg',
   'assets/speakers/seca-gandaseca.jpeg',
   'assets/speakers/zulkiflee-abd-latif.jpeg',
@@ -94,7 +94,8 @@ const updatedEventContent = [
   'Participant presentations are online only. Keynote sessions will be conducted in hybrid format.',
   'Hybrid Keynote Speaker Session',
   'Online Parallel Session',
-  'Prof. Madya Dr Ahmad Nizan Bin Mat Noor',
+  'Prof. Madya Dr. Wan Izhan Nawawi bin Wan Ismail',
+  'Navigating Your Postgraduate Journey: Key Actions and Milestones at Every Stage',
   'Prof. Dr. Mohd Nazip Suratman',
   'Are Your Research Questions, Objectives, Hypotheses, and Statistical Analysis Aligned?',
   'Assoc. Prof. Dr Seca Gandaseca',
@@ -178,7 +179,8 @@ for (const removedContent of [
   '2.00&ndash;2.30 pm',
   '2.30&ndash;3.00 pm',
   'Ts. Dr. Sabiroh Md Sabri',
-  'ppsperlis@uitm.edu.my'
+  'ppsperlis@uitm.edu.my',
+  'Prof. Madya Dr Ahmad Nizan Bin Mat Noor'
 ]) {
   if (html.includes(removedContent)) failures.push('Removed event content is still present: ' + removedContent);
 }

@@ -40,7 +40,7 @@ try {
     '/script.js',
     '/assets/favicon.svg',
     '/assets/abstract-orbit.png',
-    '/assets/speakers/ahmad-nizan-mat-noor.png',
+    '/assets/speakers/wanizhan.jpeg',
     '/assets/speakers/mohd-nazip-suratman.jpeg',
     '/assets/speakers/seca-gandaseca.jpeg',
     '/assets/speakers/zulkiflee-abd-latif.jpeg',
