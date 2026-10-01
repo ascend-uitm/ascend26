@@ -82,9 +82,9 @@ const updatedEventContent = [
   '12 October 2026',
   'October 2026',
   'March 2027',
-  'Registration, extended abstract &amp; video presentation submission',
+  'Registration &amp; paper submission deadline',
   'Notification of acceptance',
-  'Payment &amp; confirmation',
+  'Final registration, payment &amp; video submission',
   'The secretariat plays them during the online session, followed by live Q&amp;A.',
   'Full paper submission, verification, acceptance &amp; publication',
   '12<sup>th</sup>',
@@ -195,7 +195,11 @@ for (const removedContent of [
   'Ts. Dr. Sabiroh Md Sabri',
   'ppsperlis@uitm.edu.my',
   'Prof. Madya Dr Ahmad Nizan Bin Mat Noor',
-  'tinyurl.com/b63kp2xy'
+  'tinyurl.com/b63kp2xy',
+  'Registration, extended abstract &amp; video presentation submission',
+  'Payment &amp; confirmation',
+  'Register and submit your extended abstract and recorded presentation video.',
+  'Complete payment and confirm your participation.'
 ]) {
   if (html.includes(removedContent)) failures.push('Removed event content is still present: ' + removedContent);
 }
