@@ -86,7 +86,7 @@ const updatedEventContent = [
   'Notification of acceptance',
   'Final registration, payment &amp; video submission',
   'The secretariat plays them during the online session, followed by live Q&amp;A.',
-  'Full paper submission, verification, acceptance &amp; publication',
+  'Full paper submission, review process, acceptance &amp; publication in selected journal',
   '12<sup>th</sup>',
   '<dt>Participation</dt>',
   '<dd>Online only</dd>',
@@ -202,7 +202,8 @@ for (const removedContent of [
   'Registration, extended abstract &amp; video presentation submission',
   'Payment &amp; confirmation',
   'Register and submit your extended abstract and recorded presentation video.',
-  'Complete payment and confirm your participation.'
+  'Complete payment and confirm your participation.',
+  'Full paper submission, verification, acceptance &amp; publication'
 ]) {
   if (html.includes(removedContent)) failures.push('Removed event content is still present: ' + removedContent);
 }
