@@ -1213,6 +1213,10 @@ h3 {
   color: var(--ink);
 }
 
+.journal-list a {
+  text-underline-offset: 0.2em;
+}
+
 .journal-list li::before {
   content: '';
   position: absolute;
