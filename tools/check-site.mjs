@@ -108,6 +108,7 @@ const updatedEventContent = [
   'Journal of Computing Research and Innovation (JCRINN)',
   'href="https://jcrinn.com/index.php/jcrinn/"',
   'International Journal of Accounting, Business and Finance (IJAFB)',
+  'href="https://www.ijabf.in/index.php/IJABF"',
   'Journal of Islamic, Social, Economics and Development (JISED)',
   'Other participating journals',
   'All participating journals are indexed in the Malaysian Citation Index (MyCite).',
