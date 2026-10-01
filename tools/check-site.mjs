@@ -113,7 +113,6 @@ const updatedEventContent = [
   'Please adhere to the following guidelines for the presentation.',
   'Record a video presentation of no more than 10 minutes',
   'A five-minute live question-and-answer session will follow the video presentation',
-  'tinyurl.com/b63kp2xy',
   'The video must be submitted in MPEG or MP4 format, with a resolution of 720p or 1080p, and must not exceed 500 MB.',
   'Presentations must be given in English.',
   'Background music is not permitted.',
@@ -195,7 +194,8 @@ for (const removedContent of [
   '2.30&ndash;3.00 pm',
   'Ts. Dr. Sabiroh Md Sabri',
   'ppsperlis@uitm.edu.my',
-  'Prof. Madya Dr Ahmad Nizan Bin Mat Noor'
+  'Prof. Madya Dr Ahmad Nizan Bin Mat Noor',
+  'tinyurl.com/b63kp2xy'
 ]) {
   if (html.includes(removedContent)) failures.push('Removed event content is still present: ' + removedContent);
 }
