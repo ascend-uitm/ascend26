@@ -8,6 +8,8 @@ const required = [
   'styles.css',
   'script.js',
   '.nojekyll',
+  'robots.txt',
+  'sitemap.xml',
   'assets/favicon.svg',
   'assets/abstract-orbit.png',
   'assets/speakers/wanizhan.jpeg',
@@ -54,6 +56,27 @@ for (const anchor of anchors) {
 if (!html.includes('<main id="main-content">')) failures.push('Missing labelled main landmark.');
 if (!html.includes('name="description"')) failures.push('Missing meta description.');
 if (html.includes('ascend26-poster-draft')) failures.push('Draft poster must not be linked from the public site.');
+
+const robotsTxt = readFileSync(resolve(root, 'robots.txt'), 'utf8');
+if (!robotsTxt.includes('Sitemap: https://ascend-uitm.github.io/ascend26/sitemap.xml')) {
+  failures.push('robots.txt is missing the sitemap reference.');
+}
+const sitemapXml = readFileSync(resolve(root, 'sitemap.xml'), 'utf8');
+if (!sitemapXml.includes('<loc>https://ascend-uitm.github.io/ascend26/</loc>')) {
+  failures.push('sitemap.xml is missing the canonical site URL.');
+}
+
+const jsonLdMatch = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
+if (!jsonLdMatch) {
+  failures.push('Missing Event structured data (application/ld+json).');
+} else {
+  try {
+    const jsonLd = JSON.parse(jsonLdMatch[1]);
+    if (jsonLd['@type'] !== 'Event') failures.push('Structured data @type is not Event.');
+  } catch {
+    failures.push('Structured data is not valid JSON.');
+  }
+}
 const fieldLists = [...html.matchAll(/<ol class="field-list">([\s\S]*?)<\/ol>/g)];
 const fieldCounts = fieldLists.map((match) => (match[1].match(/<li>/g) || []).length);
 if (fieldCounts.length !== 2 || fieldCounts[0] !== 18 || fieldCounts[1] !== 12) {

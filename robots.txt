@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://ascend-uitm.github.io/ascend26/sitemap.xml

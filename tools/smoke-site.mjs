@@ -38,6 +38,8 @@ try {
     '/',
     '/styles.css',
     '/script.js',
+    '/robots.txt',
+    '/sitemap.xml',
     '/assets/favicon.svg',
     '/assets/abstract-orbit.png',
     '/assets/speakers/wanizhan.jpeg',
