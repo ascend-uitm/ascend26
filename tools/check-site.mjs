@@ -15,7 +15,8 @@ const required = [
   'assets/speakers/seca-gandaseca.jpeg',
   'assets/speakers/zulkiflee-abd-latif.jpeg',
   'assets/templates/ascend-2026-extended-abstract-template.docx',
-  'assets/posters/ascend26-official-poster.jpg'
+  'assets/posters/ascend26-official-poster.jpg',
+  'assets/logos/mycite.jpg'
 ];
 
 const failures = [];
@@ -102,6 +103,20 @@ const updatedEventContent = [
   'Postgraduate Research as a Catalyst for Sustainable Development and SDG Achievement',
   'Prof. Dr. Zulkiflee Abd Latif',
   'The Successful Postgraduate: Research Smarter, Progress Faster, Graduate on Time',
+  'Journal of Academia (JoA)',
+  'Journal of Computing Research and Innovation (JCRINN)',
+  'International Journal of Accounting, Business and Finance (IJAFB)',
+  'Journal of Islamic, Social, Economics and Development (JISED)',
+  'Other participating journals',
+  'All participating journals are indexed in the Malaysian Citation Index (MyCite).',
+  'Presentation guidelines',
+  'Please adhere to the following guidelines for the presentation.',
+  'Record a video presentation of no more than 10 minutes',
+  'A five-minute live question-and-answer session will follow the video presentation',
+  'tinyurl.com/b63kp2xy',
+  'The video must be submitted in MPEG or MP4 format, with a resolution of 720p or 1080p, and must not exceed 500 MB.',
+  'Presentations must be given in English.',
+  'Background music is not permitted.',
   'Participant Registration and Virtual Session Admission',
   'The programme runs from 8.00 am to 5.00 pm.',
   '8.50&ndash;9.00 am',

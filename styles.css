@@ -1198,6 +1198,83 @@ h3 {
   color: var(--muted);
 }
 
+.journal-list {
+  display: grid;
+  gap: 0.6rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.journal-list li {
+  position: relative;
+  padding-left: 1.1rem;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.journal-list li::before {
+  content: '';
+  position: absolute;
+  top: 0.55em;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.mycite-note {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(18, 20, 22, 0.12);
+}
+
+.mycite-logo {
+  width: 110px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.mycite-note p {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.presentation-guidelines-copy {
+  max-width: 760px;
+  margin-top: 2rem;
+  color: var(--muted);
+}
+
+.guideline-list {
+  display: grid;
+  gap: 1rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.guideline-list li {
+  position: relative;
+  padding-left: 1.4rem;
+  line-height: 1.6;
+}
+
+.guideline-list li::before {
+  content: '';
+  position: absolute;
+  top: 0.5em;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
 .registration {
   position: relative;
   display: grid;
@@ -1885,6 +1962,14 @@ body.poster-open {
 
   .publication-copy {
     grid-column: 1;
+  }
+
+  .mycite-note {
+    flex-wrap: wrap;
+  }
+
+  .mycite-logo {
+    width: 84px;
   }
 
   .registration {
