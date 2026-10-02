@@ -119,7 +119,7 @@ const updatedEventContent = [
   'Participant presentations are online only. Keynote sessions will be conducted in hybrid format.',
   'Hybrid Keynote Speaker Session',
   'Online Parallel Session',
-  'Prof. Madya Dr. Wan Izhan Nawawi bin Wan Ismail',
+  'Assoc. Prof. Dr. Wan Izhan Nawawi bin Wan Ismail',
   'Navigating Your Postgraduate Journey: Key Actions and Milestones at Every Stage',
   'Prof. Dr. Mohd Nazip Suratman',
   'Are Your Research Questions, Objectives, Hypotheses, and Statistical Analysis Aligned?',
@@ -228,7 +228,8 @@ for (const removedContent of [
   'Register and submit your extended abstract and recorded presentation video.',
   'Complete payment and confirm your participation.',
   'Full paper submission, verification, acceptance &amp; publication',
-  'Selected full papers proceed through verification, acceptance and publication during this period.'
+  'Selected full papers proceed through verification, acceptance and publication during this period.',
+  'Prof. Madya Dr. Wan Izhan Nawawi bin Wan Ismail'
 ]) {
   if (html.includes(removedContent)) failures.push('Removed event content is still present: ' + removedContent);
 }
