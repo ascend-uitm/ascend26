@@ -66,16 +66,21 @@ if (!sitemapXml.includes('<loc>https://ascend-uitm.github.io/ascend26/</loc>')) 
   failures.push('sitemap.xml is missing the canonical site URL.');
 }
 
-const jsonLdMatch = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
-if (!jsonLdMatch) {
-  failures.push('Missing Event structured data (application/ld+json).');
+const jsonLdBlocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
+if (!jsonLdBlocks.length) {
+  failures.push('Missing structured data (application/ld+json).');
 } else {
-  try {
-    const jsonLd = JSON.parse(jsonLdMatch[1]);
-    if (jsonLd['@type'] !== 'Event') failures.push('Structured data @type is not Event.');
-  } catch {
-    failures.push('Structured data is not valid JSON.');
+  const types = [];
+  for (const [, block] of jsonLdBlocks) {
+    try {
+      const jsonLd = JSON.parse(block);
+      types.push(jsonLd['@type']);
+    } catch {
+      failures.push('Structured data is not valid JSON.');
+    }
   }
+  if (!types.includes('Event')) failures.push('Missing Event structured data.');
+  if (!types.includes('WebSite')) failures.push('Missing WebSite structured data.');
 }
 const fieldLists = [...html.matchAll(/<ol class="field-list">([\s\S]*?)<\/ol>/g)];
 const fieldCounts = fieldLists.map((match) => (match[1].match(/<li>/g) || []).length);
