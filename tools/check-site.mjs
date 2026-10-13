@@ -202,8 +202,9 @@ if ((html.match(/class="speaker-card reveal"/g) || []).length !== 4) failures.pu
 if ((html.match(/class="award-card award-card--diamond/g) || []).length !== 1) failures.push('Expected one Diamond award card.');
 if ((html.match(/class="award-card award-card--gold/g) || []).length !== 3) failures.push('Expected three Gold award cards.');
 if (!html.includes('<dialog') || !html.includes('data-poster-modal')) failures.push('Missing official poster dialog.');
-if (!script.includes("window.setTimeout(() => openPoster(posterOpen), 420)")) failures.push('Poster splash is not configured to open on page load.');
+if (script.includes('window.setTimeout(() => openPoster(posterOpen), 420)')) failures.push('Poster splash must not auto-open on page load.');
 if (!script.includes('posterModal.showModal()')) failures.push('Poster splash does not use the native modal dialog API.');
+if (!html.includes('data-poster-open')) failures.push('Missing the persistent View poster button.');
 if ((html.match(/href="assets\/templates\/ascend-2026-extended-abstract-template\.docx"/g) || []).length !== 1) {
   failures.push('Expected one active extended abstract template download link.');
 }

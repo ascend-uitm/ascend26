@@ -99,5 +99,3 @@ posterModal?.addEventListener('close', () => {
   document.body.classList.remove('poster-open');
   posterReturnFocus?.focus({ preventScroll: true });
 });
-
-window.setTimeout(() => openPoster(posterOpen), 420);
