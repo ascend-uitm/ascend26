@@ -1636,7 +1636,7 @@ body.poster-open {
 .results-actions {
   display: flex;
   justify-content: center;
-  margin: 2.75rem 0 4rem;
+  margin: 2.75rem 0 0;
 }
 
 .button--epic {
