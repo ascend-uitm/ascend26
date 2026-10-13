@@ -1628,6 +1628,148 @@ body.poster-open {
   transform: translateY(0);
 }
 
+.results-section .section-heading p:last-child {
+  max-width: 680px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.results-actions {
+  display: flex;
+  justify-content: center;
+  margin: 2.75rem 0 4rem;
+}
+
+.button--epic {
+  position: relative;
+  overflow: hidden;
+  min-height: 60px;
+  padding: 1rem 2.6rem;
+  border: 1px solid var(--gold-light);
+  color: var(--ink);
+  background: linear-gradient(135deg, var(--gold-light), var(--gold) 55%, var(--gold-light));
+  box-shadow: 0 18px 50px rgba(193, 152, 62, 0.35);
+  font-size: 0.86rem;
+  letter-spacing: 0.06em;
+}
+
+.button--epic::before {
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(115deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  content: "";
+  transform: skewX(-20deg);
+  animation: epic-shine 3.2s ease-in-out infinite;
+}
+
+.button--epic:hover {
+  box-shadow: 0 22px 60px rgba(193, 152, 62, 0.5);
+}
+
+@keyframes epic-shine {
+  0% {
+    left: -60%;
+  }
+
+  55%,
+  100% {
+    left: 130%;
+  }
+}
+
+.awards {
+  display: grid;
+  gap: 1.75rem;
+  margin-top: 1rem;
+}
+
+.award-card {
+  padding: 1.75rem 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  background: rgba(255, 255, 255, 0.035);
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.award-card:hover {
+  border-color: rgba(193, 152, 62, 0.52);
+  background: rgba(193, 152, 62, 0.06);
+  transform: translateY(-3px);
+}
+
+.award-card__tier {
+  margin: 0 0 0.6rem;
+  color: var(--gold-light);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.award-card__no {
+  margin: 0 0 0.9rem;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.78rem;
+}
+
+.award-card h3 {
+  margin: 0 0 0.6rem;
+  color: var(--paper);
+  font-size: 1.2rem;
+}
+
+.award-card__title {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.award-card--diamond {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2.25rem 2.5rem;
+  border-color: var(--paper);
+  background: var(--paper);
+  box-shadow: 0 30px 80px rgba(255, 255, 255, 0.1);
+}
+
+.award-card--diamond:hover {
+  border-color: var(--gold-light);
+  background: var(--gold-pale);
+  transform: translateY(-3px);
+}
+
+.award-card--diamond .award-card__tier {
+  color: var(--gold);
+}
+
+.award-card--diamond .award-card__no {
+  color: var(--muted);
+}
+
+.award-card--diamond h3 {
+  color: var(--ink);
+}
+
+.award-card--diamond .award-card__title {
+  color: var(--ink-soft);
+}
+
+.award-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.75rem;
+}
+
+.results-note {
+  margin: 2.75rem 0 0;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.85rem;
+}
+
 :focus-visible {
   outline: 3px solid var(--gold-light);
   outline-offset: 4px;
@@ -1774,6 +1916,10 @@ body.poster-open {
     grid-template-columns: 1fr;
   }
 
+  .award-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .principle {
     min-height: 190px;
   }
@@ -1852,6 +1998,18 @@ body.poster-open {
   .site-header {
     padding-right: 1rem;
     padding-left: 1rem;
+  }
+
+  .award-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .award-card--diamond {
+    padding: 1.75rem;
+  }
+
+  .button--epic {
+    width: 100%;
   }
 
   .hero {
@@ -2039,6 +2197,10 @@ body.poster-open {
   }
 
   .poster-dialog {
+    animation: none;
+  }
+
+  .button--epic::before {
     animation: none;
   }
 }

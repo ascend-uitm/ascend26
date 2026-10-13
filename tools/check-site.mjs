@@ -104,6 +104,16 @@ for (const date of timelineDates) {
   previousDateIndex = dateIndex;
 }
 const updatedEventContent = [
+  'href="https://docs.google.com/spreadsheets/d/1_syC0RTt_hjgBXY_ATB11fizR9qELE7uy2FUwB-Ca5Q/edit?usp=sharing"',
+  'View full results',
+  'Sarwini a/p S. Kannan',
+  'The Role of Financial Markets in Supporting Sustainable Economic Growth',
+  'Mohammad Hafiz bin Ismail',
+  'Development of a Scale-Calibrated Map-Derived 3D Driving Simulator for UiTM Perlis Campus',
+  'Mohd Fahruddin Al-Haniff Rozy',
+  'Systematic Literature Review of Factors Contributing to Handover Delays in Public Construction Projects',
+  'Ahmad Zikri Abd Aziz',
+  'A Preliminary Comparative Synthesis of Published Euler Pole Parameters for the Sundaland Block',
   '2 October 2026',
   '5 October 2026',
   '9 October 2026',
@@ -189,6 +199,8 @@ if (!programmeBody || (programmeBody[1].match(/<tr(?:\s|>)/g) || []).length !== 
   failures.push('Expected eleven tentative programme entries.');
 }
 if ((html.match(/class="speaker-card reveal"/g) || []).length !== 4) failures.push('Expected four keynote speaker cards.');
+if ((html.match(/class="award-card award-card--diamond"/g) || []).length !== 1) failures.push('Expected one Diamond award card.');
+if ((html.match(/class="award-card award-card--gold"/g) || []).length !== 3) failures.push('Expected three Gold award cards.');
 if (!html.includes('<dialog') || !html.includes('data-poster-modal')) failures.push('Missing official poster dialog.');
 if (!script.includes("window.setTimeout(() => openPoster(posterOpen), 420)")) failures.push('Poster splash is not configured to open on page load.');
 if (!script.includes('posterModal.showModal()')) failures.push('Poster splash does not use the native modal dialog API.');
