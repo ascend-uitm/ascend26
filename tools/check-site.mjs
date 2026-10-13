@@ -199,8 +199,8 @@ if (!programmeBody || (programmeBody[1].match(/<tr(?:\s|>)/g) || []).length !== 
   failures.push('Expected eleven tentative programme entries.');
 }
 if ((html.match(/class="speaker-card reveal"/g) || []).length !== 4) failures.push('Expected four keynote speaker cards.');
-if ((html.match(/class="award-card award-card--diamond"/g) || []).length !== 1) failures.push('Expected one Diamond award card.');
-if ((html.match(/class="award-card award-card--gold"/g) || []).length !== 3) failures.push('Expected three Gold award cards.');
+if ((html.match(/class="award-card award-card--diamond/g) || []).length !== 1) failures.push('Expected one Diamond award card.');
+if ((html.match(/class="award-card award-card--gold/g) || []).length !== 3) failures.push('Expected three Gold award cards.');
 if (!html.includes('<dialog') || !html.includes('data-poster-modal')) failures.push('Missing official poster dialog.');
 if (!script.includes("window.setTimeout(() => openPoster(posterOpen), 420)")) failures.push('Poster splash is not configured to open on page load.');
 if (!script.includes('posterModal.showModal()')) failures.push('Poster splash does not use the native modal dialog API.');
